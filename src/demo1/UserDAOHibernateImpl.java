@@ -1,3 +1,5 @@
+package demo1;
+
 /**
  * UserDAO的Hibernate实现
  *

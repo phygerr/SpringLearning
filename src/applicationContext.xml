@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--Spring入门的配置-->
-    <bean id="userDAO" class="UserDAOImpl">
-        <property name="name" value="phyger"/>
+
+    <!--Spring入门的配置  单例 属性注入======= -->
+    <!--<bean id="userDAO" class="demo1.UserDAOImpl">-->
+        <!--<property name="name" value="phyger"/>-->
+    <!--</bean>-->
+
+
+
+
+    <!-- Spring的入门配置 单例=============== -->
+    <!--<bean id="phygerUserIntImpl" class="com.phyger.UserIntImplNew"/>-->
+
+
+
+
+    <!-- Spring的生命周期的配置=============== -->
+    <!-- init-method在bean实例化对象的时候就会自动运行
+         destroy-method在关闭工厂时候才会运行
+
+         scope是控制单例，多例，request。session等模式的
+     -->
+    <!--<bean id="customerIntImpl" class="demo2.CustomerIntImpl" init-method="setUp" destroy-method="destroy" scope="prototype"/>-->
+
+
+
+    <!-- Spring属性注入的配置================= -->
+    <!-- ①构造方法的方式 -->
+    <bean id="car" class="demo3.Car">
+        <constructor-arg name="name" value="宝马"/>
+        <constructor-arg name="price" value="2000000"/>
+    </bean>
+
+    <!-- ②set方法的方式 -->
+    <bean id="car2" class="demo3.Car2">
+        <property name="name" value="长安"/>
+        <property name="city" value="重庆"/>
     </bean>
 
 
+    <!-- set方法注入对象类型的属性 -->
+    <!-- value：设置普通类型的值；ref：这是其他类型的id或name -->
+    <!-- 这里注入了上面的car对象 -->
+    <bean id="employee" class="demo3.Employee">
+        <property name="name" value="涛哥"/>
+        <property name="car" ref="car"/>
+    </bean>
 </beans>

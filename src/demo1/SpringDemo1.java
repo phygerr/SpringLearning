@@ -1,4 +1,4 @@
-/**
+package demo1; /**
  * 测试类
  *
  * @author phyger

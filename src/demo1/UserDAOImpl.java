@@ -1,3 +1,5 @@
+package demo1;
+
 /**
  * 用户接口UserDAO的实现类
  *
