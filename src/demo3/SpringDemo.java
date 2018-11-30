@@ -43,4 +43,47 @@ public class SpringDemo {
         Employee employee = (Employee) applicationContext.getBean("employee");
         System.out.println(employee);
     }
+
+    @Test
+    /**
+     * p名称空间注入普通属性
+     */
+    public void demo4(){
+        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationContext.xml");
+        Car2 carr = (Car2) applicationContext.getBean("car201");
+        System.out.println(carr);
+    }
+
+    @Test
+    /**
+     * p名称空间注入对象属性
+     */
+    public void demo5(){
+        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationContext.xml");
+        Employee empl = (Employee) applicationContext.getBean("employee01");
+        System.out.println(empl);
+    }
+
+    @Test
+    public void demo6(){
+        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationContext.xml");
+        Car2 carrr = (Car2) applicationContext.getBean("car202");
+        System.out.println(carrr);
+
+    }
+
+    @Test
+    public void demo7(){
+        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationContext.xml");
+        Employee carrrr = (Employee) applicationContext.getBean("employee02");
+        System.out.println(carrrr);
+
+    }
+
+    @Test
+    public void demo8(){
+        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationContext.xml");
+        Car2 carrrr = (Car2) applicationContext.getBean("car203");
+        System.out.println(carrrr);
+    }
 }

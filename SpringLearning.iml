@@ -16,6 +16,7 @@
         <fileset id="fileset" name="ApplicationContext" removed="false">
           <file>file://$MODULE_DIR$/src/com/phyger/ApplicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/applicationContext3.xml</file>
         </fileset>
       </configuration>
     </facet>
