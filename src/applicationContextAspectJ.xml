@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 开启注解 -->
+    <context:component-scan base-package="demo8_aop"/>
+
+    <bean id="productDAO" class="demo8_aop.ProductDAOImpl"/>
+
+    <!-- 把切面类交给Spring管理 -->
+    <bean id="myAspect" class="demo8_aop.MyAspectJXML"/>
+
+    <!-- 通过AOP对目标类产生代理 -->
+    <aop:config>
+        <!-- execution表达式中的*代表人已返回值，..代表任意参数 -->
+        <!-- 意思是：在ProductDAOImpl类的save()处切入 -->
+        <aop:pointcut id="pointcut1" expression="execution(* demo8_aop.ProductDAOImpl.save(..))"/>
+
+        <!-- 配置切面 -->
+        <!-- 切入要使用的方法，ref为切面类，因为要使用的切入方法在切面类中 -->
+        <!-- aop:before意思是在切入点方法的前面切入（前置），配置切入用的方法checkPri，切入点的ref为point1 -->
+        <aop:aspect ref="myAspect">
+                <aop:before method="checkPri" pointcut-ref="pointcut1"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

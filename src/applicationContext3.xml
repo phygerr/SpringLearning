@@ -9,4 +9,23 @@
     <!-- SpringIOC注解入门 -->
     <!-- 使用IOC的注解开发，首先配置组件扫描   开启注解，扫描demo5_zhujie这个包-->
     <context:component-scan base-package="demo5_zhujie"/>
+
+    <!-- 开启demo6_bean_zhujie的扫描 -->
+
+    <context:component-scan base-package="demo6_bean_zhujie"/>
+
+    <!-- 打开扫描 -->
+    <!--<context:component-scan base-package="demo7_xmlAddZhujie"/>-->
+
+    <!-- 可以替换扫描的一种配置，可以直接读取@Resource，@value等注解 -->
+    <context:annotation-config/>
+
+    <!-- 将demo7中需要的类交由Spring管理 -->
+    <bean id="myService" class="demo7_xmlAddZhujie.MyService">
+        <!-- 将youDao和herDao注入到myService中 -->
+        <!--<property name="youDao" ref="youDao"/>-->
+        <!--<property name="herDao" ref="herDao"/>-->
+    </bean>
+    <bean id="youDao" class="demo7_xmlAddZhujie.YouDao"/>
+    <bean id="herDao" class="demo7_xmlAddZhujie.HerDao"/>
 </beans>
