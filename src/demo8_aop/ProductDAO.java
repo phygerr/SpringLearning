@@ -10,7 +10,7 @@ package demo8_aop;
  **/
 public interface ProductDAO {
     public void save();
-    public void delete();
+    public String delete();
     public void update();
     public void find();
 }

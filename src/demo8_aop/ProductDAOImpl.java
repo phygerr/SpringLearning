@@ -16,8 +16,9 @@ public class ProductDAOImpl implements ProductDAO{
     }
 
     @Override
-    public void delete() {
+    public String delete() {
         System.out.println("删除商品。。。");
+        return "删除成功";
     }
 
     @Override

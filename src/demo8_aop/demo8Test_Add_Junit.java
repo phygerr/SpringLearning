@@ -36,6 +36,7 @@ public class demo8Test_Add_Junit {
         productDAO.delete();
         productDAO.update();
         productDAO.find();
+
     }
 
 }
