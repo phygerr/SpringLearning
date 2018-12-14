@@ -29,5 +29,7 @@ public class ProductDAOImpl implements ProductDAO{
     @Override
     public void find() {
         System.out.println("查找商品。。。");
+        //  发生异常的时候，异常通知就会执行
+        //  int a=1/0;
     }
 }

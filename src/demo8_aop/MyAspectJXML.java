@@ -42,4 +42,23 @@ public class MyAspectJXML {
         return obj;
     }
 
+    /**
+     * 异常通知，异常的时候触发
+     * @param ex
+     */
+    public void afterThrow(Throwable ex){
+        System.out.println("find方法异常了===============>"+ex.getMessage());
+    }
+
+    /**
+     * 最终通知
+     * 无论怎样，都会执行
+     */
+    public void after(){
+        System.out.println("我是最终通知================>");
+    }
+
+
+
+
 }
